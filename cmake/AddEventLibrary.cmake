@@ -155,6 +155,7 @@ macro(add_event_library LIB_NAME)
         ARCHIVE DESTINATION "lib" COMPONENT lib
         RUNTIME DESTINATION "bin" COMPONENT lib
         PUBLIC_HEADER DESTINATION "include/event2"
+        INCLUDES DESTINATION include
         COMPONENT dev
     )
     if (NOT WIN32 AND ${EVENT_LIBRARY_SHARED})
