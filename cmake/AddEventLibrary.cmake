@@ -77,6 +77,10 @@ macro(add_event_library LIB_NAME)
         list(APPEND ADD_EVENT_LIBRARY_TARGETS "${LIB_NAME}_static")
 
         set(ADD_EVENT_LIBRARY_INTERFACE "${LIB_NAME}_static")
+        target_include_directories(
+          "${LIB_NAME}_static"
+          PUBLIC
+            $<INSTALL_INTERFACE:include>)
     endif()
 
     if (${EVENT_LIBRARY_SHARED})
@@ -134,6 +138,10 @@ macro(add_event_library LIB_NAME)
         list(APPEND ADD_EVENT_LIBRARY_TARGETS "${LIB_NAME}_shared")
 
         set(ADD_EVENT_LIBRARY_INTERFACE "${LIB_NAME}_shared")
+        target_include_directories(
+          "${LIB_NAME}_shared"
+          PUBLIC
+            $<INSTALL_INTERFACE:include>)
     endif()
 
     export(TARGETS ${ADD_EVENT_LIBRARY_TARGETS}
